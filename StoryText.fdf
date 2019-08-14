@@ -1,0 +1,78 @@
+IncludeFile "UI\FrameDef\UI\EscMenuTemplates.fdf",
+
+Frame "FRAME" "StoryTextPanel" {
+  Width 1,
+  Height 0.14,
+  
+  Frame "BACKDROP" "StoryTextBackGroundBackGround" {
+      Width 0.8,
+      Height 0.14,
+      SetPoint RIGHT, "StoryTextPanel", RIGHT, 0.0, 0.0,
+      DecorateFileNames,
+      BackdropBackground  "EscMenuBlankBackground",
+  }
+  
+	Frame "BACKDROP" "StoryTextBackGround" {
+	    Width 0.8,
+	    Height 0.14,
+	
+	    SetPoint RIGHT, "StoryTextPanel", RIGHT, 0.0, 0.0,
+	
+	    DecorateFileNames,
+	    BackdropTileBackground,
+	    BackdropBackground  "EscMenuBackground",
+	    BackdropCornerFlags "UL|UR|BL|BR|B|T",
+	    BackdropCornerSize  0.04,
+	    BackdropBackgroundSize  0.256,
+	    BackdropBackgroundInsets 0.0 0.01 0.0 0.0,
+      BackdropEdgeFile  "CinematicBorder",
+	    BackdropBlendAll,
+	}
+
+    Frame "FRAME" "StoryTextScenePanel" {
+
+        // This is used to hide whatever is below the portrait from showing through.
+        Frame "BACKDROP" "StoryTextPortraitBackground" {
+            Width 0.116,
+            Height 0.116,
+            SetPoint LEFT, "StoryTextPanel", LEFT, 0.014, 0.014,
+            DecorateFileNames,
+            BackdropBackground  "EscMenuBlankBackground",
+        }
+
+	    Frame "SPRITE" "StoryTextPortrait" {
+	        Width 0.116,
+	        Height 0.116,
+	        SetPoint LEFT, "StoryTextPanel", LEFT, 0.014, 0.014,
+	    }
+
+	    Frame "BACKDROP" "StoryTextPortraitCover" {
+	        Width 0.144,
+	        Height 0.144,
+	    
+	        SetPoint LEFT, "StoryTextPanel", LEFT, 0.0, 0.0,
+	    
+	        DecorateFileNames,
+	        BackdropTileBackground,
+	        BackdropBackground  "EscMenuBlankBackground",
+	        BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+	        BackdropCornerSize  0.048,
+	        BackdropBackgroundSize  0.256,
+	        BackdropBackgroundInsets 0.01 0.01 0.01 0.01,
+	        BackdropEdgeFile  "EscMenuBorder",
+	        BackdropBlendAll,
+	    }
+
+	    Frame "TEXT" "StoryTextSpeakerText" INHERITS "EscMenuTitleTextTemplate" {
+	        SetPoint TOPLEFT, "StoryTextPortraitCover", TOPRIGHT, 0.015, -0.035,
+	    }
+	    
+	    Frame "TEXT" "StoryTextDialogueText" INHERITS "EscMenuTitleTextTemplate" {
+	        Width 0.55,
+	        SetPoint TOPLEFT, "StoryTextSpeakerText", BOTTOMLEFT, 0.0, -0.004,
+	        FontColor 1.0 1.0 1.0,
+	    }
+
+    }
+
+}
